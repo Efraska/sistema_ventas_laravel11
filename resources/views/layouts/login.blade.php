@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Dashboard - NiceAdmin Bootstrap Template</title>
+  <title>@yield('titulo')</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -39,18 +39,8 @@
 </head>
 
 <body>
-
-  <!-- ======= Header ======= -->
-  @include('shared.header')
-
-  <!-- ======= Sidebar ======= -->
-  @include('shared.aside')
-
-  <!-- End #main -->
-
-  <!-- ======= Footer ======= -->
-  @include('shared.footer')
-  <!-- End Footer -->
+  
+  @yield('contenido')
 
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
