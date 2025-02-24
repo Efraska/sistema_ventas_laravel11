@@ -6,7 +6,7 @@
 <main id="main" class="main">
 
   <div class="pagetitle">
-    <h1>Categorias</h1>
+    <h1>Categorías</h1>
   </div><!-- End Page Title -->
 
   <section class="section">
@@ -14,19 +14,19 @@
       <div class="col-lg-12">
         <div class="card">
           <div class="card-body">
-            <h5 class="card-title">Administrar Categorias</h5>
+            <h5 class="card-title">Administrar Categorías</h5>
             <p>
-              Administrar las categorias de nuestros productos.
+              Administrar las categorías de nuestros productos.
             </p>
             <!-- Table with stripped rows -->
-            <button class="btn btn-primary">
-              <i class="fa-solid fa-circle-plus"></i>  Agregar nueva categoria
-            </button>
+            <a href="{{ route("categorias.create") }}" class="btn btn-primary">
+              <i class="fa-solid fa-circle-plus"></i>  Agregar nueva categoría
+            </a>
             <hr>
             <table class="table datatable">
               <thead>
                 <tr>
-                  <th>Nombre Categoria</th>
+                  <th>Nombre Categoría</th>
                   <th>Acciones</th>
                 </tr>
               </thead>
