@@ -44,7 +44,9 @@ class Categorias extends Controller
      */
     public function show(string $id)
     {
-        //
+        $titulo = 'Eliminar categoría';
+        $item = Categoria::find($id);
+        return view('modules.categorias.show', compact('item', 'titulo'));
     }
 
     /**
@@ -68,6 +70,8 @@ class Categorias extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $item = Categoria::find($id);
+        $item->delete();
+        return to_route('categorias');
     }
 }
