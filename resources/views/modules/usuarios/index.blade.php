@@ -19,7 +19,7 @@
               Administrar cuentas y roles de usuarios.
             </p>
             <!-- Table with stripped rows -->
-            <a href="" class="btn btn-primary">
+            <a href="{{ route("usuarios.create") }}" class="btn btn-primary">
               <i class="fa-solid fa-user-plus"></i>  Agregar nuevo usuario
             </a>
             <hr>
@@ -31,37 +31,11 @@
                   <th class="text-center">Rol</th>
                   <th class="text-center">Cambiar Password</th>
                   <th class="text-center">Activo</th>
-                  <th class="text-center">Acciones</th>
+                  <th class="text-center">Editar</th>
                 </tr>
               </thead>
-              <tbody>
-                @foreach ($items as $item)                   
-                <tr class="text-center">
-                  <td>{{ $item->email }}</td>
-                  <td>{{ $item->name }}</td>
-                  <td>{{ $item->rol }}</td>
-                  <td>
-                    <a href="" class="btn btn-secondary">
-                      <i class="fa-solid fa-user-lock"></i>
-                    </a>
-                  </td>
-                  <td>
-                    @if ($item->activo)
-                      <span class="badge bg-success"><i class="fa-solid fa-check"></i> Activo</span>
-                    @else
-                      <span class="badge bg-warning text-dark"><i class="fa-solid fa-xmark"></i> Inactivo</span>
-                    @endif
-                  </td>
-                  <td>
-                    <a href="#" class="btn btn-warning">
-                      <i class="fa-solid fa-user-pen"></i>
-                    </a>
-                    <a href="#" class="btn btn-danger">
-                      <i class="fa-solid fa-skull"></i>
-                    </a>
-                  </td>
-                </tr>
-                @endforeach                
+              <tbody id="tbody-usuarios">
+                @include('modules.usuarios.tbody')               
               </tbody>
             </table>
             <!-- End Table with stripped rows -->
@@ -72,3 +46,26 @@
   </section>
 </main>
 @endsection
+
+@push('scripts')
+    <script>
+
+      function recargar_tbody() {
+        $.ajax({
+          type : "GET",
+          url : "{{ route('usuarios.tbody') }}",
+          success : function(respuesta) {
+            console.log(respuesta);
+          }
+        });
+      }
+
+      $(document).ready(function(){
+        $('.form-check-input').on("change", function() {
+          let id = $(this).attr("id");
+          let estado = $(this).is(":checked") ? 1 : 0;
+          console.log(id + "||" + estado);
+        });
+      });
+    </script>
+@endpush
