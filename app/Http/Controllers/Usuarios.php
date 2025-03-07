@@ -86,4 +86,17 @@ class Usuarios extends Controller
         $items = User::all();
         return view('modules.usuarios.tbody', compact('items'));
     }
+
+    public function estado($id, $estado) {
+        $item = User::find($id);
+        $item->activo = $estado;
+        $item->save();
+        return $item->save();
+    }
+
+    public function cambio_password($id, $password){
+        $item = User::find($id);
+        $item->password = Hash::make($password);
+        return $item->save();
+    }
 }

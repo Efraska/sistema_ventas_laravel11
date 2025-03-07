@@ -45,6 +45,7 @@
     </div>
   </section>
 </main>
+@include('modules.usuarios.modal_cambiar_password')
 @endsection
 
 @push('scripts')
@@ -60,12 +61,47 @@
         });
       }
 
+      function agregar_id_usuario(id) {
+        $('#id_usuario').val(id);
+      }
+
+      function cambio_password() {
+        let id = $('#id_usuario').val();
+        let password = $('#password').val();
+
+        $.ajax({
+          type: "GET",
+          url: "usuarios/cambiar-password/" + id + "/" + password,
+          success :function(respuesta) {
+            if (respuesta == 1) {
+              alert("Se ha cambiado la contraseña exitosamente!");
+              $('#frmPassword')[0].reset();
+            }
+          }
+        });
+        
+        return false;
+      }
+
+      function cambiar_estado(id, estado) {
+        $.ajax({
+          type: "GET",
+          url : "usuarios/cambiar-estado/" + id + "/" + estado,
+          success: function(respuesta) {
+            if (respuesta == 1) {
+              alert("Cambio de estado correcto");
+              recargar_tbody();
+            }
+          }
+        });
+      }
+
       $(document).ready(function(){
         $('.form-check-input').on("change", function() {
           let id = $(this).attr("id");
           let estado = $(this).is(":checked") ? 1 : 0;
-          console.log(id + "||" + estado);
-        });
+          cambiar_estado(id, estado);
+          });
       });
     </script>
 @endpush
