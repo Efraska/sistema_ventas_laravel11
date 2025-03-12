@@ -6,7 +6,7 @@
 <main id="main" class="main">
 
   <div class="pagetitle">
-    <h1>Categorías</h1>
+    <h1>Proveedores</h1>
   </div><!-- End Page Title -->
 
   <section class="section">
@@ -14,36 +14,46 @@
       <div class="col-lg-12">
         <div class="card">
           <div class="card-body">
-            <h5 class="card-title">Administrar Categorías</h5>
+            <h5 class="card-title">Administrar Proveedores</h5>
             <p>
-              Administrar las categorías de nuestros productos.
+              Administrar los proveedores de nuestros productos.
             </p>
             <!-- Table with stripped rows -->
-            <a href="{{ route("categorias.create") }}" class="btn btn-primary">
-              <i class="fa-solid fa-circle-plus"></i>  Agregar nueva categoría
+            <a href="#" class="btn btn-primary">
+              <i class="fa-solid fa-circle-plus"></i>  Agregar nuevo proveedor
             </a>
             <hr>
             <table class="table datatable">
               <thead>
                 <tr>
-                  <th class="text-center">Nombre Categoría</th>
+                  <th class="text-center">Nombre Proveedor</th>
+                  <th class="text-center">Teléfono</th>
+                  <th class="text-center">Email</th>
+                  <th class="text-center">CP</th>
+                  <th class="text-center">Sitio Web</th>
+                  <th class="text-center">Nota</th>
                   <th class="text-center">Acciones</th>
                 </tr>
               </thead>
               <tbody>
-                @foreach ($items as $item)
+                {{-- @foreach ($items as $item) --}}
                 <tr class="text-center">
-                  <td>{{ $item->nombre }}</td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
                   <td>
-                    <a href="{{ route('categorias.edit', $item->id) }}" class="btn btn-warning">
+                    <a href="#" class="btn btn-warning">
                       <i class="fa-solid fa-pen-to-square"></i>
                     </a>
-                    <a href="{{ route("categorias.show", $item->id) }}" class="btn btn-danger">
+                    <a href="#" class="btn btn-danger">
                       <i class="fa-solid fa-trash-can"></i>
                     </a>
                   </td>
                 </tr>
-                @endforeach
+                {{-- @endforeach --}}
               </tbody>
             </table>
             <!-- End Table with stripped rows -->

@@ -11,7 +11,7 @@
 
       <li class="nav-item">
         <a class="nav-link collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse" href="#">
-          <i class="bi bi-menu-button-wide"></i><span>Ventas</span><i class="bi bi-chevron-down ms-auto"></i>
+          <i class="fa-solid fa-cart-shopping"></i><span>Ventas</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
         <ul id="components-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
@@ -29,22 +29,22 @@
 
       <li class="nav-item">
         <a class="nav-link collapsed" href="{{ route("categorias") }}">
-          <i class="bi bi-card-list"></i>
+          <i class="fa-solid fa-layer-group"></i>
           <span>Categorias</span>
         </a>
       </li><!-- End Categorias Page Nav -->
 
       <li class="nav-item">
         <a class="nav-link collapsed" href="{{ route("productos") }}">
-          <i class="bi bi-box-arrow-in-right"></i>
+          <i class="fa-solid fa-tags"></i>
           <span>Productos</span>
         </a>
       </li><!-- End Productos Page Nav -->
 
       <li class="nav-item">
-        <a class="nav-link collapsed" href="{{ route("clientes")}}">
-          <i class="bi bi-dash-circle"></i>
-          <span>Clientes</span>
+        <a class="nav-link collapsed" href="{{ route("proveedores")}}">
+          <i class="fa-solid fa-truck-field"></i>
+          <span>Proveedores</span>
         </a>
       </li><!-- End Clientes Page Nav -->
 
