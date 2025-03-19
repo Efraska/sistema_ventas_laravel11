@@ -23,7 +23,7 @@
             </p>
             <hr>
             <!-- Table with stripped rows -->
-            <a href="#" class="btn btn-primary">
+            <a href="{{ route('productos.create') }}" class="btn btn-primary">
               <i class="fa-solid fa-circle-plus"></i>  Crear producto
             </a>
             <hr>
@@ -44,18 +44,26 @@
                 </tr>
               </thead>
               <tbody>
-                {{-- @foreach ($items as $item) --}}
+                @foreach ($items as $item)
                 <tr class="text-center">
+                  <td>{{ $item->nombre_categoria }}</td>
+                  <td>{{ $item->nombre_proveedor }}</td>
+                  <td>{{ $item->nombre }}</td>
                   <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
+                  <td>{{ $item->descripcion }}</td>
+                  <td>{{ $item->cantidad }}</td>
+                  <td>{{ $item->precio_compra }}</td>
+                  <td>{{ $item->precio_venta }}</td>
+                  <td>
+                    <div class="form-check form-switch">
+                      <input class="form-check-input" type="checkbox" id="{{ $item->id }}" {{ $item->activo ? 'checked' : '' }} >
+                      </div>
+                  </td>
+                  <td>
+                    <a href="#" class="btn btn-info">
+                      <i class="fa-solid fa-wallet"></i>  Comprar
+                    </a>
+                  </td>
                   <td>
                     <a href="#" class="btn btn-warning">
                       <i class="fa-solid fa-pen-to-square"></i>
@@ -65,7 +73,7 @@
                     </a>
                   </td>
                 </tr>
-                {{-- @endforeach --}}
+                @endforeach
               </tbody>
             </table>
             <!-- End Table with stripped rows -->
