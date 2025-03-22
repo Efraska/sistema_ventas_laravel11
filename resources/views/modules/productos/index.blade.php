@@ -18,10 +18,6 @@
             <p>
               Administrar el stock del sistema.
             </p>
-            <p>
-              <a href="" class="btn btn-primary">Productos con stock minimo</a>
-            </p>
-            <hr>
             <!-- Table with stripped rows -->
             <a href="{{ route('productos.create') }}" class="btn btn-primary">
               <i class="fa-solid fa-circle-plus"></i>  Crear producto
@@ -68,7 +64,7 @@
                     <a href="{{ route('productos.edit', $item->id) }}" class="btn btn-warning">
                       <i class="fa-solid fa-pen-to-square"></i>
                     </a>
-                    <a href="#" class="btn btn-danger">
+                    <a href="{{ route('productos.show', $item->id) }}" class="btn btn-danger">
                       <i class="fa-solid fa-trash-can"></i>
                     </a>
                   </td>

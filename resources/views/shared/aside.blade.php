@@ -35,11 +35,29 @@
       </li><!-- End Categorias Page Nav -->
 
       <li class="nav-item">
-        <a class="nav-link collapsed" href="{{ route("productos") }}">
-          <i class="fa-solid fa-tags"></i>
-          <span>Productos</span>
+        <a class="nav-link collapsed" data-bs-target="#productos-nav" data-bs-toggle="collapse" href="#">
+          <i class="fa-solid fa-dolly"></i><span>Productos</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
-      </li><!-- End Productos Page Nav -->
+        <ul id="productos-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+          <li>
+            <a href="{{ route("productos") }}">
+              <i class="bi bi-circle"></i><span>Administrar Productos</span>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <i class="bi bi-circle"></i><span>Reportes de productos</span>
+            </a>
+          </li>
+        </ul>
+      </li><!-- End Components Nav -->
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="#">
+          <i class="fa-solid fa-bag-shopping"></i>
+          <span>Compras</span>
+        </a>
+      </li><!-- End Clientes Page Nav -->
 
       <li class="nav-item">
         <a class="nav-link collapsed" href="{{ route("proveedores")}}">
