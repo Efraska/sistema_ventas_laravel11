@@ -48,15 +48,15 @@
                   <td></td>
                   <td>{{ $item->descripcion }}</td>
                   <td>{{ $item->cantidad }}</td>
-                  <td>{{ $item->precio_compra }}</td>
                   <td>{{ $item->precio_venta }}</td>
+                  <td>{{ $item->precio_compra }}</td>
                   <td>
                     <div class="form-check form-switch">
                       <input class="form-check-input" type="checkbox" id="{{ $item->id }}" {{ $item->activo ? 'checked' : '' }} >
                       </div>
                   </td>
                   <td>
-                    <a href="#" class="btn btn-info">
+                    <a href="{{ route('compras.create', $item->id) }}" class="btn btn-info">
                       <i class="fa-solid fa-wallet"></i>  Comprar
                     </a>
                   </td>
@@ -80,3 +80,41 @@
   </section>
 </main>
 @endsection
+
+@push('scripts')
+<script>
+      function cambiar_estado(id, estado) {
+        $.ajax({
+          type: "GET",
+          url : "productos/cambiar-estado/" + id + "/" + estado,
+          success: function(respuesta){
+            if(respuesta == 1){
+              Swal.fire({
+                title: 'Exito!',
+                text: 'Cambio de estado exitoso!',
+                icon: 'success',
+                confirmButtonText:'Aceptar'
+              });
+            
+            } else {
+              Swal.fire({
+                title: 'Fallo!',
+                text: 'No se llevo a cabo el cambio!',
+                icon: 'error',
+                confirmButtonText:'Aceptar'
+              });
+            }
+          }
+        });
+      }
+
+  $(document).ready(function(){
+    $('.form-check-input').on("change", function(){
+      let id = $(this).attr("id");
+      let estado = $(this).is(":checked") ? 1 : 0;
+      // console.log(id + estado);
+      cambiar_estado(id, estado);
+    });
+  });
+</script>
+@endpush

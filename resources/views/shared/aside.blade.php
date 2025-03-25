@@ -45,7 +45,7 @@
             </a>
           </li>
           <li>
-            <a href="#">
+            <a href="{{ route('reportes_productos') }}">
               <i class="bi bi-circle"></i><span>Reportes de productos</span>
             </a>
           </li>
@@ -53,7 +53,7 @@
       </li><!-- End Components Nav -->
 
       <li class="nav-item">
-        <a class="nav-link collapsed" href="#">
+        <a class="nav-link collapsed" href="{{ route('compras') }}">
           <i class="fa-solid fa-bag-shopping"></i>
           <span>Compras</span>
         </a>
