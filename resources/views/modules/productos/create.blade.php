@@ -16,7 +16,7 @@
           <div class="card-body">
             <h5 class="card-title">Crear Nuevo Producto</h5>
 
-            <form action="{{ route('productos.store') }}" method="post">
+            <form action="{{ route('productos.store') }}" method="post" enctype="multipart/form-data">
                 @csrf
                 <label for="categoria_id">Categoria</label>
                 <select name="categoria_id" id="categoria_id" class="form-select" required>
@@ -36,6 +36,8 @@
                 <input type="text" class="form-control" name="nombre" id="nombre" required>
                 <label for="descripcion">Descripción</label>
                 <textarea name="descripcion" id="descripcion" cols="20" rows="5" class="form-control"></textarea>
+                <label for="imagen">Imagen</label>
+                <input type="file" name="imagen" id="imagen" class="form-control">
 
                 <button class="btn btn-primary mt-3">
                 <i class="fa-solid fa-floppy-disk"></i> Guardar
