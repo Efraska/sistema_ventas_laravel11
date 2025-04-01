@@ -27,6 +27,9 @@ Route::middleware("auth")->group(function() {
 
 Route::prefix('ventas')->group(function() {
     Route::get('/nueva-venta', [Ventas::class, 'index'])->name('ventas-nueva');
+    Route::get('/agregar-carrito/{id_producto}', [Ventas::class, 'agregar_carrito'])->name('ventas.agregar.carrito');
+    Route::get('/borrar-carrito', [Ventas::class, 'borrar_carrito'])->name('ventas.borrar.carrito');
+    Route::get('/quitar-carrito/{id_producto}', [Ventas::class, 'quitar_carrito'])->name('ventas.quitar.carrito');
 });
 
 Route::prefix('detalle')->middleware('auth')->group(function() {
@@ -60,6 +63,7 @@ Route::prefix('productos')->middleware('auth')->group(function() {
 
 Route::prefix('reportes_productos')->middleware('auth')->group(function() {
     Route::get('/', [Reportes_productos::class, 'index'])->name('reportes_productos');
+    Route::get('/falta-stock', [Reportes_productos::class, 'falta_stock'])->name('reportes_productos.falta_stock');
 });
 
 Route::prefix('proveedores')->middleware('auth')->group(function() {
