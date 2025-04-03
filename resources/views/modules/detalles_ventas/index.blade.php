@@ -21,8 +21,9 @@
                   <th class="text-center">Total Vendido</th>
                   <th class="text-center">Fecha venta</th>
                   <th class="text-center">Usuario</th>
-                  <th class="text center">Ver Detalle</th>
-                  <th class="text center">Revocar Venta</th>
+                  <th class="text-center">Ver Detalle</th>
+                  <th class="text-center">Imprimir Ticket</th>
+                  <th class="text-center">Revocar Venta</th>
                 </tr>
               </thead>
               <tbody>
@@ -31,15 +32,24 @@
                   <td class="text-center">${{ $item->total_venta }}</td>
                   <td class="text-center">{{ $item->created_at }}</td>
                   <td class="text-center">{{ $item->nombre_usuario }}</td>
-                  <td class="text-start">
+                  <td class="text-center">
                     <a href="{{ route('detalle.vista.detalle', $item->id) }}" class="btn btn-info">
                       <i class="fa-solid fa-circle-info"></i>  Detalle
                     </a>
                   </td>
-                  <td class="text-start">
-                    <a href="" class="btn btn-danger">
-                      <i class="fa-solid fa-trash-can"></i>  Revocar
+                  <td>
+                    <a target="_blank" href="{{ route('detalle.ticket', $item->id) }}" class="btn btn-success">
+                      <i class="fa-solid fa-print"></i>  Imprimir
                     </a>
+                  </td>
+                  <td class="text-center">
+                    <form action="{{ route('detalle.revocar', $item->id) }}" method="post" onsubmit="return confirm('¿Estas seguro de revocar la venta?')">
+                      @csrf
+                      @method('DELETE')
+                      <button class="btn btn-danger">
+                        <i class="fa-solid fa-trash-can"></i>  Revocar
+                      </button>
+                    </form>
                   </td>
                 </tr>
                 @endforeach
