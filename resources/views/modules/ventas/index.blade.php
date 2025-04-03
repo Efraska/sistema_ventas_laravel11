@@ -93,12 +93,21 @@
                   </tfoot>
                 </table>
                 <hr>
-                <a href="#" class="btn btn-primary">
-                  <i class="fa-solid fa-plus"></i> Realizar venta
-                </a>
-                <a href="{{ route('ventas.borrar.carrito') }}" class="btn btn-danger">
-                  <i class="fa-solid fa-trash-can"></i>  Borrar carrito
-                </a>
+                <div class="row">
+                  <div class="col">
+                    <form action="{{ route('ventas.vender') }}" method="POST">
+                      @csrf
+                      <button class="btn btn-primary">
+                        <i class="fa-solid fa-plus"></i>  Realizar Venta
+                      </button>
+                    </form>
+                  </div>
+                  <div class="col">
+                    <a href="{{ route('ventas.borrar.carrito') }}" class="btn btn-danger">
+                      <i class="fa-solid fa-trash-can"></i>  Borrar carrito
+                    </a>
+                  </div>
+                </div>
             @else
                 <p>No tengo contenido</p>
             @endif
