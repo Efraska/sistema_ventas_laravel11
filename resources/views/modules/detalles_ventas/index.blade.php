@@ -32,7 +32,7 @@
                   <td class="text-center">{{ $item->created_at }}</td>
                   <td class="text-center">{{ $item->nombre_usuario }}</td>
                   <td class="text-start">
-                    <a href="" class="btn btn-info">
+                    <a href="{{ route('detalle.vista.detalle', $item->id) }}" class="btn btn-info">
                       <i class="fa-solid fa-circle-info"></i>  Detalle
                     </a>
                   </td>
