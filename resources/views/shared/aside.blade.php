@@ -9,6 +9,7 @@
         </a>
       </li><!-- End Dashboard Nav -->
 
+      @can('ver-ventas')
       <li class="nav-item">
         <a class="nav-link collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse" href="#">
           <i class="fa-solid fa-cart-shopping"></i><span>Ventas</span><i class="bi bi-chevron-down ms-auto"></i>
@@ -26,6 +27,9 @@
           </li>
         </ul>
       </li><!-- End Components Nav -->
+      @endcan
+
+      @can('ver-admin')
 
       <li class="nav-item">
         <a class="nav-link collapsed" href="{{ route("categorias") }}">
@@ -72,7 +76,6 @@
           <span>Usuarios</span>
         </a>
       </li><!-- End Usuarios Page Nav -->
-
+      @endcan
     </ul>
-
   </aside><!-- End Sidebar-->
