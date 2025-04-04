@@ -12,17 +12,15 @@
 
               <div class="d-flex justify-content-center py-4">
                 <a href="#" class="logo d-flex align-items-center w-auto">
-                  <img src="assets/img/logo.png" alt="">
-                  <span class="d-none d-lg-block">Ventas y Almacén</span>
+                  {{-- <span class="d-none d-lg-block">Ventas y Almacén</span> --}}
                 </a>
               </div><!-- End Logo -->
 
               <div class="card mb-3">
 
                 <div class="card-body">
-
+                  <img src="{{ asset('img/login.jpg') }}" alt="" class="img-fluid">
                   <div class="pt-4 pb-2">
-                    <h5 class="card-title text-center pb-0 fs-4">Login de usuarios</h5>
                     <p class="text-center small">Ingresa tu email y password para acceder</p>
                   </div>
 
